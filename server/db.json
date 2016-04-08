@@ -1,0 +1,79 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 2
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 3
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 4
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 5
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 6
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 7
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 8
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 9
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 10
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 11
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 12
+    },
+    {
+      "title": "teste",
+      "author": "ssdsd",
+      "id": 13
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
