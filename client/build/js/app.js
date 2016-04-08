@@ -92,7 +92,6 @@
 		function Controller() {
 			_classCallCheck(this, Controller);
 
-			this.create();
 			this.render();
 		}
 
@@ -101,7 +100,7 @@
 			value: function render() {
 				_axios2.default.get(host + '/posts').then(function (response) {
 					var template = '<table class="table"> \n\t\t\t\t\t<thead> \n\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t<th>#</th> \n\t\t\t\t\t\t\t<th>Title</th> \n\t\t\t\t\t\t\t<th>Author</th> \n\t\t\t\t\t\t</tr> \n\t\t\t\t\t</thead> \n\t\t\t\t\t<tbody> \n\t\t\t\t\t\t' + response.data.map(function (data) {
-						return '<tr>\n\t\t\t\t\t\t\t\t<th scope="row">' + data.id + '<th>\n\t\t\t\t\t\t\t\t<td>' + data.title + '</td>\n\t\t\t\t\t\t\t\t<td>' + data.author + '</td>\n\t\t\t\t\t\t\t</tr>';
+						return '<tr>\n\t\t\t\t\t\t\t\t<th scope="row">' + data.id + '</th>\n\t\t\t\t\t\t\t\t<td>' + data.title + '</td>\n\t\t\t\t\t\t\t\t<td>' + data.author + '</td>\n\t\t\t\t\t\t\t</tr>';
 					}).join('') + '\n\t\t\t\t\t</tbody> \n\t\t\t\t</table>';
 					document.querySelector(".insert-table").innerHTML = template;
 				}).catch(function (error) {

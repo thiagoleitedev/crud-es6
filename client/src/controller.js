@@ -5,7 +5,6 @@ const host = 'http://localhost:4000';
 
 class Controller {
 	constructor() {
-		this.create();
 		this.render();
 	};
 
@@ -24,7 +23,7 @@ class Controller {
 					<tbody> 
 						${response.data.map(data =>
 							`<tr>
-								<th scope="row">${data.id}<th>
+								<th scope="row">${data.id}</th>
 								<td>${data.title}</td>
 								<td>${data.author}</td>
 							</tr>`
