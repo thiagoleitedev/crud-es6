@@ -10,7 +10,16 @@
 		<div class="container">
 			<a class="btn btn-default" href="#" role="button">Adicionar</a>
 
-			<div class="insert-table"></div>
+			<!-- <div class="insert-table"></div> -->
+			<template id="comment-template">
+				<li class="comment">
+					<div class="comment-autor"></div>
+					<div class="comment-body"></div>
+					<div class="comment-actions">
+						<a href="#reply" class="reply">Reply</a>
+					</div>
+				</li>
+			</template>
 		</div>
 	</body>
 	<script src="/js/app.js"></script>

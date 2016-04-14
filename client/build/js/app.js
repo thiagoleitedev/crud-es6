@@ -96,13 +96,74 @@
 		}
 
 		_createClass(Controller, [{
+			key: 'parseHtml',
+			value: function parseHtml(str) {
+				var domparser, doc, docfrag;
+				domparser = new DOMParser();
+				doc = domparser.parseFromString(str, 'text/html');
+				docfrag = document.createDocumentFragment();
+				doc.onclick = function () {
+					alert("dasd");
+				};
+				docfrag.appendChild(doc.documentElement);
+				return docfrag;
+			}
+		}, {
+			key: 'elementButtonDelete',
+			value: function elementButtonDelete() {
+				var tt = this.parseHtml('<div class="btn">asd </div>');
+				tt.onclick = function () {
+					alert("dasd");
+				};
+				console.log(tt);
+				document.body.appendChild(tt);
+			}
+		}, {
+			key: 'par',
+			value: function par(ee) {
+				console.log(ee);
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var _this = this;
+
 				_axios2.default.get(host + '/posts').then(function (response) {
-					var template = '<table class="table"> \n\t\t\t\t\t<thead> \n\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t<th>#</th> \n\t\t\t\t\t\t\t<th>Title</th> \n\t\t\t\t\t\t\t<th>Author</th> \n\t\t\t\t\t\t</tr> \n\t\t\t\t\t</thead> \n\t\t\t\t\t<tbody> \n\t\t\t\t\t\t' + response.data.map(function (data) {
-						return '<tr>\n\t\t\t\t\t\t\t\t<th scope="row">' + data.id + '</th>\n\t\t\t\t\t\t\t\t<td>' + data.title + '</td>\n\t\t\t\t\t\t\t\t<td>' + data.author + '</td>\n\t\t\t\t\t\t\t</tr>';
+
+					var template = '<table class="table"> \n\t\t\t\t\t<thead> \n\t\t\t\t\t\t<tr> \n\t\t\t\t\t\t\t<th>#</th> \n\t\t\t\t\t\t\t<th>Title</th> \n\t\t\t\t\t\t\t<th>Author</th> \n\t\t\t\t\t\t\t<th>Actions</th>\n\t\t\t\t\t\t</tr> \n\t\t\t\t\t</thead> \n\t\t\t\t\t<tbody id="rr"> \n\t\t\t\t\t\t' + response.data.map(function (data) {
+						return '<tr>\n\t\t\t\t\t\t\t\t<th scope="row">' + data.id + '</th>\n\t\t\t\t\t\t\t\t<td>' + data.title + '</td>\n\t\t\t\t\t\t\t\t<td>' + data.author + '</td>\n\t\t\t\t\t\t\t\t<td><input class="btn btn-default" type="button" js-id="bt-delete-post" value="Excluir" /></td>\n\t\t\t\t\t\t\t\t<td><div class="teste" style="width: 100px; height: 100px; background: red;"></td>\n\t\t\t\t\t\t\t</tr>';
 					}).join('') + '\n\t\t\t\t\t</tbody> \n\t\t\t\t</table>';
+
 					document.querySelector(".insert-table").innerHTML = template;
+					_this.elementButtonDelete();
+					/*
+	    		let tt = document.querySelectorAll('.bt');
+	    		for (var i=0; i<tt.length; i++) {
+	    	console.log(document.querySelectorAll('.bt')[i]);
+	    }
+	    
+	    let table = document.createElement('table');
+	    let thead = document.createElement('thead');
+	    let tbody = document.createElement('tbody');
+	    let th = document.createElement('th');
+	    let td = document.createElement('td');
+	    		table.className = 'table';
+	    table.appendChild(tbody);
+	    		response.data.map(data => {
+	    	var tr = document.createElement('tr');
+	    	var td = document.createElement('td');
+	    	let elementButtonDelete = this.elementButtonDelete();
+	    			tr.appendChild(td);
+	    	td.appendChild(elementButtonDelete);
+	    			tbody.appendChild(tr);
+	    });
+	    		document.querySelector('.insert-table').appendChild(table);
+	    		
+	    /*
+	    btn.onclick = function (evt) {
+	    	console.log(evt.target);
+	    }
+	    */
 				}).catch(function (error) {
 					console.log(error);
 				});
